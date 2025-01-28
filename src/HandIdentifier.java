@@ -13,6 +13,11 @@ public class HandIdentifier
     public static void identifyHand(String hand)
     {
         String[] hand2 = hand.substring(0,hand.indexOf("|")).split(",");
-        System.out.println(Arrays.toString(hand2));
+        String card1 = hand2[1];
+        String card2 = hand2[2];
+        String card3 = hand2[3];
+        String card4 = hand2[4];
+        String card5 = hand2[5];
+        if(card1.equals(card2)&&(card2.equals))
     }
 }
