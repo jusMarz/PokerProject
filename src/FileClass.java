@@ -24,6 +24,11 @@ public class FileClass
 
         String[] fileDater = fileData.split("\n");
        System.out.println(Arrays.toString(fileDater));
+       for(int i = 0; i < fileDater.length; i++)
+       {
+           HandIdentifier.identifyHand(fileDater[i]);
+       }
+        System.out.println(HandIdentifier.getFiveOfKind());
     }
 
 

@@ -58,7 +58,14 @@ public class HandIdentifier
                 twos ++;
         }
 
-        if
+        if((aces == 5)||(kings == 5)||(queens == 5)||(tens == 5)||(nines == 5)||(eights == 5)||(sevens == 5)||(sixes == 5)||(fives == 5)||(fours == 5)||(threes == 5)||(twos == 5))
+        {
+            fiveOfKind++;
+        }
 
+    }
+
+    public static int getFiveOfKind() {
+        return fiveOfKind;
     }
 }
