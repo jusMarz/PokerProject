@@ -127,4 +127,19 @@ public class HandIdentifier
         }
         return frequency;
     }
+
+    public static String[] ranklist(String[] list)
+    {
+        String[] rankedList = new String[list.length];
+        rankedList[0] = list[0];
+        for(int i = 0; i < list.length; i++)
+        {
+            if ( (identifyHand(rankedList[i])) < (identifyHand(list[i])) )
+            {
+                rankedList[i+1] = rankedList[i];
+                rankedList[i] = list[i];
+            }
+        }
+        return rankedList;
+    }
 }
