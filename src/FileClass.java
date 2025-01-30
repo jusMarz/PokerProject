@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FileClass
 {
     public static void main(String[] args) {
-        File f = new File("data/InputFile");
+        File f = new File("data/InputFile2");
         Scanner s = null;
 
             try
@@ -26,9 +26,18 @@ public class FileClass
        System.out.println(Arrays.toString(fileDater));
        for(int i = 0; i < fileDater.length; i++)
        {
-           HandIdentifier.identifyHand(fileDater[i]);
+           System.out.println(HandIdentifier.identifyHand(fileDater[i]));
+
        }
-        System.out.println(HandIdentifier.getFiveOfKind());
+        System.out.println("number of fives: " + HandIdentifier.getFiveOfKind());
+        System.out.println("number of four: " + HandIdentifier.getFourOfKind());
+        System.out.println("number of fullhouse: " + HandIdentifier.getFullHouse());
+        System.out.println("number of three: " + HandIdentifier.getThreeOfKind());
+        System.out.println("number of two: " + HandIdentifier.getTwoPair());
+        System.out.println("number of onepair: " + HandIdentifier.getOnePair());
+        System.out.println("Get highcard: " + HandIdentifier.getHighCard());
+        int[] list2 = {1,1,1,1,1,1,1,1,2,1,1,1,1};
+        System.out.println(HandIdentifier.frequencyChecker(list2,2));
     }
 
 

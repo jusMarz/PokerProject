@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.*;
 
 public class HandIdentifier
 {
@@ -11,61 +12,119 @@ public class HandIdentifier
     private static int highCard;
 
 
-    public static void identifyHand(String hand)
+    public static int getFiveOfKind() {
+        return fiveOfKind;
+    }
+
+    public static int getFourOfKind() {
+        return fourOfKind;
+    }
+
+    public static int getFullHouse() {
+        return fullHouse;
+    }
+
+    public static int getThreeOfKind() {
+        return threeOfKind;
+    }
+
+    public static int getTwoPair() {
+        return twoPair;
+    }
+
+    public static int getOnePair() {
+        return onePair;
+    }
+
+    public static int getHighCard() {
+        return highCard;
+    }
+
+    public static int identifyHand(String hand)
     {
         String[] hand2 = hand.substring(0,hand.indexOf("|")).split(",");
-        int aces = 0;
-        int kings = 0;
-        int queens = 0;
-        int jacks = 0;
-        int tens = 0;
-        int nines = 0;
-        int eights = 0;
-        int sevens = 0;
-        int sixes = 0;
-        int fives = 0;
-        int fours = 0;
-        int threes = 0;
-        int twos = 0;
+        int[] list = new int[13];
 
         for (int i = 0; i < 5; i++)
         {
             if (hand2[i].equals("Ace"))
-                aces ++;
+                list[0] ++;
             else if (hand2[i].equals("King"))
-                kings ++;
+                list[1] ++;
             else if (hand2[i].equals("Queen"))
-                queens ++;
+                list[2] ++;
             else if (hand2[i].equals("Jack"))
-                jacks ++;
+                list[3] ++;
             else if (hand2[i].equals("10"))
-                tens ++;
+                list[4] ++;
             else if (hand2[i].equals("9"))
-                nines ++;
+                list[5] ++;
             else if (hand2[i].equals("8"))
-                eights ++;
+                list[6] ++;
             else if (hand2[i].equals("7"))
-                sevens ++;
+                list[7] ++;
             else if (hand2[i].equals("6"))
-                sixes ++;
+                list[8] ++;
             else if (hand2[i].equals("5"))
-                fives ++;
+                list[9] ++;
             else if (hand2[i].equals("4"))
-                fours ++;
+                list[10] ++;
             else if (hand2[i].equals("3"))
-                threes ++;
+                list[11] ++;
             else if (hand2[i].equals("2"))
-                twos ++;
+                list[12] ++;
         }
-
-        if((aces == 5)||(kings == 5)||(queens == 5)||(tens == 5)||(nines == 5)||(eights == 5)||(sevens == 5)||(sixes == 5)||(fives == 5)||(fours == 5)||(threes == 5)||(twos == 5))
+        System.out.println(Arrays.toString(list));
+        if(frequencyChecker(list, 5) == 1)
         {
             fiveOfKind++;
+            return 7;
         }
-
+        else if(frequencyChecker(list, 4) == 1)
+        {
+            fourOfKind++;
+            return 6;
+        }
+        else if(frequencyChecker(list, 3) == 1)
+        {
+            if(frequencyChecker(list, 2) == 1)
+            {
+                fullHouse++;
+                return 5;
+            }
+            else
+            {
+                threeOfKind++;
+                return 4;
+            }
+        }
+        else if(frequencyChecker(list, 2) == 2)
+        {
+            twoPair++;
+            return 3;
+        }
+        else if(frequencyChecker(list, 2) == 1)
+        {
+            onePair++;
+            return 2;
+        }
+        else
+        {
+            highCard++;
+            return 1;
+        }
     }
 
-    public static int getFiveOfKind() {
-        return fiveOfKind;
+    public static int frequencyChecker(int[] list, int value)
+    {
+        int frequency = 0;
+        for(int i = 0; i < list.length; i++)
+        {
+            if(list[i] == value)
+            {
+                frequency++;
+            }
+        }
+        return frequency;
     }
 }
