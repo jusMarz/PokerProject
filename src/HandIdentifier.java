@@ -161,10 +161,136 @@ public class HandIdentifier
         return rankedList;
     }
 
-
-
-    private static void judgeCards(String card1,String posistion)
+    private static int valueOfCard(String card)
     {
+        if(card == "Ace")
+        {
+            return 13;
+        }
+        if(card == "King")
+        {
+            return 12;
+        }
+        if(card == "Queen")
+        {
+            return 11;
+        }
+        if(card == "Jack")
+        {
+            return 10;
+        }
+        if(card == "10")
+        {
+            return 9;
+        }
+        if(card == "9")
+        {
+            return 8;
+        }
+        if(card == "8")
+        {
+            return 7;
+        }
+        if(card == "7")
+        {
+            return 6;
+        }
+        if(card == "6")
+        {
+            return 5;
+        }
+        if(card == "5")
+        {
+            return 4;
+        }
+        if(card == "4")
+        {
+            return 3;
+        }
+        if(card == "3")
+        {
+            return 2;
+        }
+        if(card == "2")
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
+    private static String judgeCards(String card1,String card2)
+    {
+        if(identifyHand(card1)>identifyHand(card2))
+        {
+            return card1;
+        }
+        else if(identifyHand(card2)>identifyHand(card1))
+        {
+            return card2;
+        }
+        else
+        {
+            String[] hand1 = card1.substring(0,card1.indexOf("|")).split(",");
+            String[] hand2 = card2.substring(0,card2.indexOf("|")).split(",");
+            if(valueOfCard(hand1[0])>valueOfCard(hand2[0]))
+            {
+                return card1;
+            }
+            else if((valueOfCard(hand1[0])<valueOfCard(hand2[0])))
+            {
+                return card2;
+            }
+            else
+            {
+                if(valueOfCard(hand1[1])>valueOfCard(hand2[1]))
+                {
+                    return card1;
+                }
+                else if((valueOfCard(hand1[1])<valueOfCard(hand2[1])))
+                {
+                    return card2;
+                }
+                else
+                {
+                    if(valueOfCard(hand1[2])>valueOfCard(hand2[2]))
+                    {
+                        return card1;
+                    }
+                    else if((valueOfCard(hand1[2])<valueOfCard(hand2[2])))
+                    {
+                        return card2;
+                    }
+                    else
+                    {
+                        if(valueOfCard(hand1[3])>valueOfCard(hand2[3]))
+                        {
+                            return card1;
+                        }
+                        else if((valueOfCard(hand1[3])<valueOfCard(hand2[3])))
+                        {
+                            return card2;
+                        }
+                        else
+                        {
+                            if(valueOfCard(hand1[4])>valueOfCard(hand2[4]))
+                            {
+                                return card1;
+                            }
+                            else if((valueOfCard(hand1[4])<valueOfCard(hand2[4])))
+                            {
+                                return card2;
+                            }
+                            else
+                            {
+                                return card1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
