@@ -155,7 +155,8 @@ public class HandIdentifier
             rankedListSpot = 0;
             for (boolean findPlace = false; findPlace == true;)
             {
-               if (judgeCards(list[i],rankedList[rankedListSpot]) == 1) {
+//               if (judgeCards(list[i],rankedList[rankedListSpot]) == 1)
+               {
                    for (int i2 = 0; i2 < rankedListSpot - frequencyChecker2(rankedList, "0"); i2++) {
                        rankedList[rankedListSpot - frequencyChecker2(rankedList, "0") - i2 + 1] = rankedList[i - frequencyChecker2(rankedList, "0") - i2];
                    }
