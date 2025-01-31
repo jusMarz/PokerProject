@@ -163,7 +163,7 @@ public class HandIdentifier
 
 
 
-    private static void swapRanks(String[] list,int posistion)
+    private static void judgeCards(String card1,String posistion)
     {
 
     }
