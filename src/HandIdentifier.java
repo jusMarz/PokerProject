@@ -149,15 +149,20 @@ public class HandIdentifier
         String[] rankedList = new String[list.length];
         Arrays.fill(rankedList, "0");
         rankedList[0] = list[0];
-        for(int i = 0;i < list.length;i++)
+        int rankedListSpot;
+        for(int i = 0; i < list.length;i++)
         {
-            if list[i]
-            for(int i2 = 0;i2 < i - frequencyChecker2(rankedList, "0");i2++)
-                {
-                    rankedList[i - frequencyChecker2(rankedList, "0") - i2 + 1] = rankedList[i - frequencyChecker2(rankedList, "0") - i2];
-                }
-        }
-
+            rankedListSpot = 0;
+            for (boolean findPlace = false; findPlace == true;)
+            {
+               if (judgeCards(list[i],rankedList[rankedListSpot]) == 1) {
+                   for (int i2 = 0; i2 < rankedListSpot - frequencyChecker2(rankedList, "0"); i2++) {
+                       rankedList[rankedListSpot - frequencyChecker2(rankedList, "0") - i2 + 1] = rankedList[i - frequencyChecker2(rankedList, "0") - i2];
+                   }
+               }
+               rankedListSpot++;
+            }
+       }
         return rankedList;
     }
 
