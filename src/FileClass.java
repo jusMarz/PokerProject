@@ -36,8 +36,8 @@ public class FileClass
         System.out.println("number of two: " + HandIdentifier.getTwoPair());
         System.out.println("number of onepair: " + HandIdentifier.getOnePair());
         System.out.println("Get highcard: " + HandIdentifier.getHighCard());
-        int[] list2 = {1,1,1,1,1,1,1,1,2,1,1,1,1};
-        System.out.println(HandIdentifier.frequencyChecker(list2,2));
+
+        System.out.println(HandIdentifier.ranklist(fileDater));
     }
 
 

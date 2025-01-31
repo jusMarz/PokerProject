@@ -108,10 +108,13 @@ public class HandIdentifier
             onePair++;
             return 2;
         }
-        else
+        else if (frequencyChecker(list, 1) == 5)
         {
             highCard++;
             return 1;
+        }
+        {
+            return 0;
         }
     }
 
@@ -128,18 +131,40 @@ public class HandIdentifier
         return frequency;
     }
 
+    public static int frequencyChecker2(String[] list, String value)
+    {
+        int frequency = 0;
+        for(int i = 0; i < list.length; i++)
+        {
+            if(list[i].equals(value))
+            {
+                frequency++;
+            }
+        }
+        return frequency;
+    }
+
     public static String[] ranklist(String[] list)
     {
         String[] rankedList = new String[list.length];
+        Arrays.fill(rankedList, "0");
         rankedList[0] = list[0];
-        for(int i = 0; i < list.length; i++)
+        for(int i = 0;i < list.length;i++)
         {
-            if ( (identifyHand(rankedList[i])) < (identifyHand(list[i])) )
-            {
-                rankedList[i+1] = rankedList[i];
-                rankedList[i] = list[i];
-            }
+            if list[i]
+            for(int i2 = 0;i2 < i - frequencyChecker2(rankedList, "0");i2++)
+                {
+                    rankedList[i - frequencyChecker2(rankedList, "0") - i2 + 1] = rankedList[i - frequencyChecker2(rankedList, "0") - i2];
+                }
         }
+
         return rankedList;
+    }
+
+
+
+    private static void swapRanks(String[] list,int posistion)
+    {
+
     }
 }
