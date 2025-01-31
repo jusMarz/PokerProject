@@ -23,21 +23,17 @@ public class FileClass
         }
 
         String[] fileDater = fileData.split("\n");
-       System.out.println(Arrays.toString(fileDater));
        for(int i = 0; i < fileDater.length; i++)
        {
-           System.out.println(HandIdentifier.identifyHand(fileDater[i]));
-
+       HandIdentifier.identifyHand(fileDater[i]);
        }
-        System.out.println("number of fives: " + HandIdentifier.getFiveOfKind());
-        System.out.println("number of four: " + HandIdentifier.getFourOfKind());
-        System.out.println("number of fullhouse: " + HandIdentifier.getFullHouse());
-        System.out.println("number of three: " + HandIdentifier.getThreeOfKind());
-        System.out.println("number of two: " + HandIdentifier.getTwoPair());
-        System.out.println("number of onepair: " + HandIdentifier.getOnePair());
-        System.out.println("Get highcard: " + HandIdentifier.getHighCard());
-
-        System.out.println(HandIdentifier.ranklist(fileDater));
+        System.out.println("Hands that are Five of a Kind: " + HandIdentifier.getFiveOfKind());
+        System.out.println("Hands that are Four of a Kind: " + HandIdentifier.getFourOfKind());
+        System.out.println("Hands that are Full House: " + HandIdentifier.getFullHouse());
+        System.out.println("Hands that are Three of a Kind: " + HandIdentifier.getThreeOfKind());
+        System.out.println("Hands that are Two Pair: " + HandIdentifier.getTwoPair());
+        System.out.println("Hands that are One Pair: : " + HandIdentifier.getOnePair());
+        System.out.println("Hands that are High Card: " + HandIdentifier.getHighCard());
     }
 
 

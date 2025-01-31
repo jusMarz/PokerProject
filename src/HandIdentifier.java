@@ -74,7 +74,6 @@ public class HandIdentifier
             else if (hand2[i].equals("2"))
                 list[12] ++;
         }
-        System.out.println(Arrays.toString(list));
         if(frequencyChecker(list, 5) == 1)
         {
             fiveOfKind++;
