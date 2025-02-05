@@ -302,15 +302,29 @@ public class HandIdentifier
     public static String[] sortCards(String[] cards)
     {
         String[] sorted = new String[cards.length];
-
+        return sorted;
     }
 
-    public static int countBidValue(String list)
+//    public static int countBidValue(String list)
+//    {
+//        int bidValue = Integer.parseInt(list.substring(list.indexOf("|")+1));
+//        if(identifyHand(list) == 7)
+//        {
+//            bidValue*=7;
+//        }
+//    }
+
+    public static void shiftCards(String[] sorted, String card, int posistion, int cardsToShift)
     {
-        int bidValue = Integer.parseInt(list.substring(list.indexOf("|")+1));
-        if(identifyHand(list) == 7)
+        String[] shifted = new String[cardsToShift];
+        for(int i = 0; i < cardsToShift; i++)
         {
-            bidValue*=7;
+            shifted[i] = sorted[i + posistion];
+        }
+        sorted[posistion] = card;
+        for(int i = 0; i < cardsToShift; i++)
+        {
+            sorted[i + posistion + 1] = shifted[i];
         }
     }
 }
