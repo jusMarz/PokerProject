@@ -23,9 +23,11 @@ public class FileClass
         }
 
         String[] fileDater = fileData.split("\n");
+        int sum = 0;
        for(int i = 0; i < fileDater.length; i++)
        {
        HandIdentifier.identifyHand(fileDater[i]);
+       sum+=HandIdentifier.countBidValue(fileDater[i]);
        }
         System.out.println("Hands that are Five of a Kind: " + HandIdentifier.getFiveOfKind());
         System.out.println("Hands that are Four of a Kind: " + HandIdentifier.getFourOfKind());
@@ -34,6 +36,7 @@ public class FileClass
         System.out.println("Hands that are Two Pair: " + HandIdentifier.getTwoPair());
         System.out.println("Hands that are One Pair: : " + HandIdentifier.getOnePair());
         System.out.println("Hands that are High Card: " + HandIdentifier.getHighCard());
+        System.out.println("Total bid value: " + sum);
     }
 
 

@@ -298,4 +298,19 @@ public class HandIdentifier
             }
         }
     }
+
+    public static String[] sortCards(String[] cards)
+    {
+        String[] sorted = new String[cards.length];
+
+    }
+
+    public static int countBidValue(String list)
+    {
+        int bidValue = Integer.parseInt(list.substring(list.indexOf("|")+1));
+        if(identifyHand(list) == 7)
+        {
+            bidValue*=7;
+        }
+    }
 }
