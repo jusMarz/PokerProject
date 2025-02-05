@@ -314,6 +314,17 @@ public class HandIdentifier
 //        }
 //    }
 
+    public int findPositionOfCard(String[] list, String card)
+    {
+        for(int i = 0; i < list.length; i++)
+        {
+            if(list[i].equals(card))
+            {
+                return i;
+            }
+        }
+    }
+
     public static void shiftCards(String[] sorted, String card, int posistion, int cardsToShift)
     {
         String[] shifted = new String[cardsToShift];
