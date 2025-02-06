@@ -302,6 +302,13 @@ public class HandIdentifier
     public static String[] sortCards(String[] cards)
     {
         String[] sorted = new String[cards.length];
+        sorted[0] = cards[0];
+        int cardsInList = 1;
+        for (int i = 1; i < cards.length - 1;i ++ )
+        {
+            shiftCards(sorted,cards[i],findPositionOfCard(cards, cards[i]),cardsInList);
+            cardsInList++;
+        }
         return sorted;
     }
 
@@ -314,15 +321,14 @@ public class HandIdentifier
 //        }
 //    }
 
-    public int findPositionOfCard(String[] list, String card)
+    public static int findPositionOfCard(String[] list, String card)
     {
-        for(int i = 0; i < list.length; i++)
+        int indexToBe = 0;
+        while(!(judgeCards(list[indexToBe], card).equals(card)))
         {
-            if(list[i].equals(card))
-            {
-                return i;
-            }
+            indexToBe++;
         }
+        return indexToBe;
     }
 
     public static void shiftCards(String[] sorted, String card, int posistion, int cardsToShift)
