@@ -304,9 +304,9 @@ public class HandIdentifier
         String[] sorted = new String[cards.length];
         sorted[0] = cards[0];
         int cardsInList = 1;
-        for (int i = 1; i < cards.length - 1;i ++ )
+        for (int i = 1; i < cards.length;i ++ )
         {
-            shiftCards(sorted,cards[i],findPositionOfCard(cards, cards[i]),cardsInList);
+            shiftCards(sorted,cards[i],findPositionOfCard(cards, cards[i]),cardsInList - findPositionOfCard(cards, cards[i]));
             cardsInList++;
         }
         return sorted;
