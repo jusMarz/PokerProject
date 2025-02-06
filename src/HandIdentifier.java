@@ -302,11 +302,12 @@ public class HandIdentifier
     public static String[] sortCards(String[] cards)
     {
         String[] sorted = new String[cards.length];
+        sorted = ["0,0,0,0,0|0"] * cards.length;
         sorted[0] = cards[0];
         int cardsInList = 1;
         for (int i = 1; i < cards.length;i ++ )
         {
-            shiftCards(sorted,cards[i],findPositionOfCard(cards, cards[i]),cardsInList - findPositionOfCard(cards, cards[i]));
+            shiftCards(sorted,cards[i],findPositionOfCard(sorted, cards[i]),cardsInList - findPositionOfCard(sorted, cards[i]));
             cardsInList++;
         }
         return sorted;
