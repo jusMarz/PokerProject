@@ -168,55 +168,55 @@ public class HandIdentifier
 
     private static int valueOfCard(String card)
     {
-        if(card == "Ace")
+        if(card.equals("Ace"))
         {
             return 13;
         }
-        if(card == "King")
+        if(card.equals("King"))
         {
             return 12;
         }
-        if(card == "Queen")
+        if(card.equals("Queen"))
         {
             return 11;
         }
-        if(card == "Jack")
+        if(card.equals("Jack"))
         {
             return 10;
         }
-        if(card == "10")
+        if(card.equals("10"))
         {
             return 9;
         }
-        if(card == "9")
+        if(card.equals("9"))
         {
             return 8;
         }
-        if(card == "8")
+        if(card.equals("8"))
         {
             return 7;
         }
-        if(card == "7")
+        if(card.equals("7"))
         {
             return 6;
         }
-        if(card == "6")
+        if(card.equals("6"))
         {
             return 5;
         }
-        if(card == "5")
+        if(card.equals("5"))
         {
             return 4;
         }
-        if(card == "4")
+        if(card.equals("4"))
         {
             return 3;
         }
-        if(card == "3")
+        if(card.equals("3"))
         {
             return 2;
         }
-        if(card == "2")
+        if(card.equals("2"))
         {
             return 1;
         }
@@ -231,6 +231,7 @@ public class HandIdentifier
         if(identifyHand(card1)>identifyHand(card2))
         {
             return card1;
+
         }
         else if(identifyHand(card2)>identifyHand(card1))
         {
@@ -239,6 +240,7 @@ public class HandIdentifier
         else
         {
             String[] hand1 = card1.substring(0,card1.indexOf("|")).split(",");
+
             String[] hand2 = card2.substring(0,card2.indexOf("|")).split(",");
             if(valueOfCard(hand1[0])>valueOfCard(hand2[0]))
             {
@@ -266,6 +268,7 @@ public class HandIdentifier
                     }
                     else if((valueOfCard(hand1[2])<valueOfCard(hand2[2])))
                     {
+
                         return card2;
                     }
                     else
@@ -302,7 +305,10 @@ public class HandIdentifier
     public static String[] sortCards(String[] cards)
     {
         String[] sorted = new String[cards.length];
-        sorted = ["0,0,0,0,0|0"] * cards.length;
+        for(int i = 0; i < cards.length; i++)
+        {
+            sorted[i] = "0,0,0,0,0|0";
+        }
         sorted[0] = cards[0];
         int cardsInList = 1;
         for (int i = 1; i < cards.length;i ++ )
