@@ -36,10 +36,8 @@ public class FileClass
         System.out.println("Hands that are Two Pair: " + HandIdentifier.getTwoPair());
         System.out.println("Hands that are One Pair: : " + HandIdentifier.getOnePair());
         System.out.println("Hands that are High Card: " + HandIdentifier.getHighCard());
-        System.out.println("Total bid value: " + sum);
-        System.out.println("-Part 2-");
-        System.out.println("Unsorted list" + Arrays.toString(hands));
-        System.out.println("Sorted list" + Arrays.toString(HandIdentifier.sortCards(hands)));
+        System.out.println("Total bid value: " + HandIdentifier.countBidValue((HandIdentifier.sortCards(hands))));
+
     }
 
 

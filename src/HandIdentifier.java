@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.*;
 
 public class HandIdentifier
 {
@@ -319,14 +318,15 @@ public class HandIdentifier
         return sorted;
     }
 
-//    public static int countBidValue(String list)
-//    {
-//        int bidValue = Integer.parseInt(list.substring(list.indexOf("|")+1));
-//        if(identifyHand(list) == 7)
-//        {
-//            bidValue*=7;
-//        }
-//    }
+    public static int countBidValue(String[] list)
+    {
+        int bidValue = 0;
+       for (int i = 0; i < list.length ; i++)
+       {
+           bidValue += Integer.parseInt(list[i].substring(list[i].indexOf("|")+1)) * (list.length - i );
+       }
+       return bidValue;
+    }
 
     public static int findPositionOfCard(String[] list, String card)
     {
